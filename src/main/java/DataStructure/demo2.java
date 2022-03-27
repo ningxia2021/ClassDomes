@@ -208,9 +208,7 @@ public class demo2 {
         public int lenth(){
             return size;
         }
-
     }
-
 
     public static void main(String[] args) {
         listNode listNode = new listNode();
