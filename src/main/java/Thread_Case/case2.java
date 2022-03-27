@@ -64,4 +64,5 @@ class Singleton2 {
 }
 
 public class case2 {
+
 }
