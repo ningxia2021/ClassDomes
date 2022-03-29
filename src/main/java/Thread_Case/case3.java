@@ -19,8 +19,7 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
- * 标准库中
- * 生产者消费者模型的使用
+ * 【标准库中阻塞队列的使用】
  */
 public class case3 {
     public static void main(String[] args) throws InterruptedException {

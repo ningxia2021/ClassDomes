@@ -64,5 +64,9 @@ class Singleton2 {
 }
 
 public class case2 {
+    public static void main(String[] args) {
+        Singleton2 instance = Singleton2.getInstance();
+
+    }
 
 }
