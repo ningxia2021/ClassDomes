@@ -21,7 +21,7 @@ class myTask implements Comparable<myTask>{
 
     public myTask(Runnable runnable, long delay) {
         this.runnable = runnable;
-//        相对时间
+//        相对时间 相对现在还要过去多久到
         this.time = System.currentTimeMillis() + delay;
     }
 
