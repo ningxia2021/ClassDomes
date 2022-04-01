@@ -68,7 +68,6 @@ class myTimer {
 //                        时间到了  就需要执行任务
                         task.run();
                     }
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -77,8 +76,6 @@ class myTimer {
         t1.start();
     }
 }
-
-
 
 public class case4_Timer_2 {
     public static void main(String[] args) {
