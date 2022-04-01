@@ -75,7 +75,7 @@ class gaohtimer{
 }
 
 public class case4_timer_me {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws InterruptedException {
         gaohtimer timer = new gaohtimer();
 //        放任务内容及时间进队列，这里就堆runnable进行了实例化
         timer.schedule(new Runnable() {
@@ -85,5 +85,6 @@ public class case4_timer_me {
             }
         },3000);
         System.out.println("main");
+        Thread.sleep(5000);
     }
 }

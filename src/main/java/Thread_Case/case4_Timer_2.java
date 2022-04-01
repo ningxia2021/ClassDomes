@@ -21,7 +21,7 @@ class myTask implements Comparable<myTask>{
 
     public myTask(Runnable runnable, long delay) {
         this.runnable = runnable;
-//        相对时间 相对现在还要过去多久到
+//        相对时间
         this.time = System.currentTimeMillis() + delay;
     }
 
@@ -50,13 +50,7 @@ class myTimer {
 //        优先队列需要对象实现Comparable<>接口
 //        否则不知道比较规则，会报错：Thread_Case.myTask cannot be cast to java.lang.Comparable
         queue.put(task);
-//        每次任务插入成功之后都唤醒一下 扫描线程，让线程重新检查一下任务之间的优先级 并重新计算一下等待时间
-        synchronized (Locker){
-            Locker.notify();
-        }
     }
-
-    private Object Locker = new Object();
 
     public myTimer(){
         Thread t1 = new Thread(()->{
@@ -69,9 +63,7 @@ class myTimer {
 //                        说明还没到时间,就需要把任务再塞回到队列中
                         queue.put(task);
 //                       计算一下需要等多久，并开始阻塞
-                        synchronized (Locker){
-                            Locker.wait(task.getTime()-System.currentTimeMillis());
-                        }
+                        wait(System.currentTimeMillis()-task.getTime());
                     }else {
 //                        时间到了  就需要执行任务
                         task.run();
@@ -85,6 +77,8 @@ class myTimer {
         t1.start();
     }
 }
+
+
 
 public class case4_Timer_2 {
     public static void main(String[] args) {
