@@ -1,108 +1,87 @@
 package DataStructure;
 
-import org.omg.CORBA.Object;
-
 import java.util.Arrays;
 
 /**
- * 【数组】实现栈
- *
- * @time 2022.03.26 23：50
+ * 2022.04.02 使用数组实现栈
  */
-public class demo3 {
-    //    采用泛型的方式实现多种数据形式的栈结构
-    static class myStack<E> {
-        /**
-         * 定义数组及容量
-         */
-        private Object[] array;
-        private int size;
 
-        public myStack() {
-            array = new Object[5];
-            this.size=0;
-        }
+class mystack{
+    private int[] array;
+    private int size;
 
-        /**
-         * 栈的功能:
-         * 1.判断是否为空
-         */
-        public boolean isEmpty() {
-//        size==0 本身就是在做判断；结果为真 返回true；反之 返回false
-            return size == 0;
-        }
+    public mystack(int num){
+        this.array = new int[num];
+        this.size = 0;
+    }
 
-        /**
-         * 2.判断是否需要扩容
-         */
-        public void Expansion() {
-            if (array.length == size) {
-                array = Arrays.copyOf(array, array.length + 5);
-            } else {
-                return;
-            }
-        }
-
-        /**
-         * 压栈 push
-         */
-        public void push(E e) {
-//        校验是否需要扩容
-            Expansion();
-            array[size] = (Object) e;
-            size++;
-        }
-
-        /**
-         * 打印
-         */
-        public void display() {
-            for (int i = 0; i < size; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.println();
-        }
-
-        /**
-         * 出栈
-         */
-        public E pop() {
-            if (isEmpty()) {
-                System.out.println("数组为空，适可而止");
-                return null;
-            }
-            E t = peek();
-            if (size > 0) {
-                array[size - 1] = null;
-                size--;
-            }
-            return t;
-        }
-
-        /**
-         * 取栈顶元素 peek
-         */
-        public E peek() {
-            E e = (E) array[size - 1];
-            return e;
+//    判断是否为空
+    public boolean isEmpty(){
+        if (this.size == 0){
+            return true;
+        }else {
+            return false;
         }
     }
 
+//    判断是否为满
+    public boolean isFull(){
+        if (this.size == array.length){
+            return true;
+        }else {
+            return false;
+        }
+    }
 
+//    扩容
+    public void expansion(){
+        if (isFull()){
+            array = Arrays.copyOf(array,array.length+10);
+        }
+    }
+
+//    压栈
+    public void push(int data){
+        if (isFull()){
+            this.expansion();
+        }
+        array[size] = data;
+        size++;
+    }
+
+//    出栈
+    public int pull(){
+        int data = array[size-1];
+        size--;
+        return data;
+    }
+
+//    取栈顶元素
+    public int peek(){
+        return array[size-1];
+    }
+
+//    显示
+    public void display(){
+       for (int i = 0;i<size;i++){
+           System.out.print(array[i]+" ");
+       }
+        System.out.println();
+    }
+}
+
+public class demo3 {
     public static void main(String[] args) {
-        myStack<String> myStack = new myStack<String>();
-        myStack.push("1");
-//        myStack.push(2);
-//        myStack.push(3);
-//        myStack.push(4);
-//        myStack.push(4);
-//        myStack.push(4);
-        myStack.display();
-//        myStack.pop();
-//        myStack.display();
-////        myStack.pop();
-////        myStack.display();
-//        System.out.println(myStack.peek());
-
+        mystack stack = new mystack(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.display();
+        System.out.println(stack.pull());
+        stack.display();
+        System.out.println(stack.peek());
+        stack.display();
     }
 }
