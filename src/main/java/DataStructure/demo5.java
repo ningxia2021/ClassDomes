@@ -89,7 +89,7 @@ class orderedArray {
         }
         int mid = (left + right) / 2;
         if (array[mid] == target) {
-//            返回下标
+    //   返回下标
             return mid;
         } else if (target > array[mid]) {
             return isContainNum(target, mid + 1, right);
@@ -97,6 +97,7 @@ class orderedArray {
             return isContainNum(target, left, mid - 1);
         }
     }
+    //    对二分查找方法的初始化
     public int contain(int tager){
         if (array!=null){
             return isContainNum(tager,0,array.length-1);
@@ -109,7 +110,7 @@ class orderedArray {
 public class demo5 {
     public static void main(String[] args) {
         orderedArray orderedArray = new orderedArray(5);
-//        随机插入100以内的10个数
+    //    随机插入100以内的10个数
         for (int i = 0; i < 10; i++) {
             double random = (Math.random() * 1000);
             orderedArray.add((int) random % 100);
@@ -117,14 +118,16 @@ public class demo5 {
         orderedArray.display();
         System.out.println("共包含 " + orderedArray.getsizes() + "  个元素");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入一个数");
-        int ret = scanner.nextInt();
-//        调用比较接口 看ret是否包含在数组内 并给出结果
-        int contain = orderedArray.contain(ret);
-        if (contain != -1){
-            System.out.println("包含");
-        }else {
-            System.out.println("不包含");
+        while(true){
+            System.out.println("请输入一个数");
+            int ret = scanner.nextInt();
+            //     调用比较接口 看ret是否包含在数组内 并给出结果
+            int contain = orderedArray.contain(ret);
+            if (contain != -1){
+                System.out.println("包含");
+            }else {
+                System.out.println("不包含");
+            }
         }
     }
 }
