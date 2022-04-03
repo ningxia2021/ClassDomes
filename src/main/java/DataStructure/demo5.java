@@ -82,14 +82,14 @@ class orderedArray {
         return sizes;
     }
 
-    //   查看是否包含某个元素 包含则返回该元素，不包含则返回-1
+    //   二分查找定位某个元素，如果存在，返回其下标，不存在返回-1
     private int isContainNum(int target, int left, int right) {
-        //        这里要用二分查找
         if (left > right) {
             return -1;
         }
-        int mid = left + (left + right) / 2;
+        int mid = (left + right) / 2;
         if (array[mid] == target) {
+//            返回下标
             return mid;
         } else if (target > array[mid]) {
             return isContainNum(target, mid + 1, right);
@@ -120,6 +120,11 @@ public class demo5 {
         System.out.println("请输入一个数");
         int ret = scanner.nextInt();
 //        调用比较接口 看ret是否包含在数组内 并给出结果
-        orderedArray.contain(ret);
+        int contain = orderedArray.contain(ret);
+        if (contain != -1){
+            System.out.println("包含");
+        }else {
+            System.out.println("不包含");
+        }
     }
 }
