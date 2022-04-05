@@ -11,17 +11,20 @@ import java.util.Scanner;
  */
 public class demo10 {
     public static void main(String[] args) {
-        System.out.println("请输入需要复制的对象-》");
+        System.out.println("请输入要复制的文件路径-》");
         Scanner scanner = new Scanner(System.in);
+//        拿到要复制的文件路径
         String src = scanner.next();
-        System.out.println("请输入要复制去的路径");
+        System.out.println("请输入要粘贴的路径");
+//        拿到要粘贴的文件路径
         String desc = scanner.next();
+//        文件操作 判断是否是文件 文件是否合法
         File srcFile = new File(src);
         if (!srcFile.isFile()){
             System.out.println("源路径不正确！重新输入");
             return;
         }
-//        拷贝操作
+//        文件验证合法后，开始进行拷贝操作
 //        此处不需要检查目标文件的存在，OutputStream写文件的时候能够自动创建不存在的文件
         try (InputStream inputStream = new FileInputStream(src)){
             try(OutputStream outputStream = new FileOutputStream(desc)){
