@@ -46,6 +46,8 @@ class btNode {
 }
 
 class tree {
+    int count = 0;
+
     //    构造一颗树型结构 用来演示一些功能
     public btNode creatTree() {
         btNode A = new btNode('A');
@@ -89,12 +91,30 @@ class tree {
 
     //      后序遍历 左子树>右子树>根 正确顺序为 D-H-E-B-F-G-C-A
     public void postOrder(btNode root) {
-        if (root == null){
+        if (root == null) {
             return;
         }
         postOrder(root.getLeftChild());
         postOrder(root.getRightChild());
-        System.out.print(root.getVal()+" ");
+        System.out.print(root.getVal() + " ");
+    }
+
+    //    获取树中节点个数
+    public int getSize1(btNode root) {
+        if (root != null) {
+            count++;
+            getSize1(root.getLeftChild());
+            getSize1(root.getRightChild());
+        }
+        return count;
+    }
+
+    //    高级的获取节点方法
+    public int getSize2(btNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return getSize2(root.getLeftChild()) + getSize2(root.getRightChild()) + 1;
     }
 }
 
@@ -110,5 +130,11 @@ public class BinaryTree {
         System.out.println();
         System.out.print("后序遍历 : ");
         t.postOrder(root);
+        int size = t.getSize1(root);
+        System.out.println();
+        System.out.print("获取结点的个数方法1 : ");
+        System.out.println(size);
+        System.out.print("获取结点的个数方法2 : ");
+        System.out.println(t.getSize2(root));
     }
 }
