@@ -55,7 +55,6 @@ class tree {
     int count = 0;
     //    定义成静态的变量  类名就可以直接访问 不需要new 实例访问
     static int leadCount = 0;
-    static int k_Count = 0;
 
     //    构造一颗树型结构 用来演示一些功能
     public btNode creatTree() {
@@ -346,6 +345,20 @@ class tree {
             return false;
         }
         return isSameTree2(root,subroot)||isSubTree(root.getLeftChild(),subroot)||isSubTree(root.getRightChild(),subroot);
+    }
+
+//    平衡二叉树 (条件 ： 1.左树与右树的高度差小于二 2.所有子树都是平衡二叉树)
+    public boolean isBalanced(btNode root){
+        if (root==null){
+            return true;
+        }
+        int i = getHeight(root.getLeftChild());
+        int j = getHeight(root.getRightChild());
+        if (Math.abs(i-j)>1){
+            return false;
+        }else {
+            return isBalanced(root.getLeftChild())&&isBalanced(root.getRightChild());
+        }
     }
 }
 
