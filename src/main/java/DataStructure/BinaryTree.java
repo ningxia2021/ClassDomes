@@ -300,7 +300,7 @@ class tree {
                 return false;
             }
 //            空节点就跳过
-            if (root1 == null && root2 ==null){
+            if (root1 == null && root2 == null) {
                 continue;
             }
 //            到这一步说明结构没有问题 比较值 如果值相同 那么就把它的左右子树入队列。 同样下一次循环过来就会出对列 判断它是不是结构和值都相同
@@ -322,7 +322,7 @@ class tree {
      * 判断两棵树是否完全相同
      * 递归方法
      */
-    public boolean isSameTree2(btNode p,btNode q){
+    public boolean isSameTree2(btNode p, btNode q) {
         //        判断结构
         if (p == null && q == null) {
             return true;
@@ -337,9 +337,16 @@ class tree {
         }
 //        到这一步说明两个节点都是非空节点 且 值相同。进入递归就是一直判断左子树的节点是否结构相同以及值相同 直至到空节点后return回来 进入右子树的节点，从下网上递归回来。
 //        要想return true  必须所有节点都返回ture才可以。
-        return isSameTree2(p.getLeftChild(),q.getLeftChild())&&isSameTree2(p.getRightChild(),q.getRightChild());
+        return isSameTree2(p.getLeftChild(), q.getLeftChild()) && isSameTree2(p.getRightChild(), q.getRightChild());
     }
 
+    //    判断subroot是否为root 的子树 子树就是完全一样的树
+    public boolean isSubTree(btNode root, btNode subroot) {
+        if (root == null) {
+            return false;
+        }
+        return isSameTree2(root,subroot)||isSubTree(root.getLeftChild(),subroot)||isSubTree(root.getRightChild(),subroot);
+    }
 }
 
 public class BinaryTree {
@@ -380,5 +387,6 @@ public class BinaryTree {
         }
         System.out.print("判断是否为完全二叉树 : ");
         System.out.println(t.isCompleteTree(root));
+
     }
 }
