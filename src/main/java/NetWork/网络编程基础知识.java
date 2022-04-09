@@ -1,4 +1,4 @@
-package Web;
+package NetWork;
 
 /**
  * 2022.04.07 网络编程
@@ -46,6 +46,6 @@ package Web;
  * 面向字节流：以字节为单位进行传输                         面向数据报：以数据报为单位进行传输。
  * 全双工：一条链路，双向通信                              半双工：一条链路，单向通信
  */
-public class demo1 {
+public class 网络编程基础知识 {
 
 }
