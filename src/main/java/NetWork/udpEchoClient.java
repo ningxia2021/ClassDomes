@@ -6,11 +6,13 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Scanner;
+
 /**
  * 2022.04.09 周六
  * 实现udp客户端 网络套接字编程
  */
-class client {
+
+public class udpEchoClient {
     //    这里的ip port是服务器的
     private String ServerIP;
     private int ServerPort;
@@ -18,7 +20,7 @@ class client {
     DatagramSocket socket = null;
 
     //    初始化
-    public client(String ip, int port) throws SocketException {
+    public udpEchoClient(String ip, int port) throws SocketException {
         socket = new DatagramSocket();
         ServerIP = ip;
         ServerPort = port;
@@ -44,11 +46,9 @@ class client {
             System.out.printf("req : %s ,reps : %s\n", request, response);
         }
     }
-}
 
-public class udpEchoClient {
     public static void main(String[] args) throws IOException {
-        client client = new client("localhost", 9090);
+        udpEchoClient client = new udpEchoClient("localhost", 9090);
         client.start();
     }
 }

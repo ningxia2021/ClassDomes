@@ -8,8 +8,8 @@ import java.util.HashMap;
  * 2022.04.09 周六
  * 实现udp 网络套接字编程
  */
-//基本的接收发送过程继承udpserver中
-public class udpDictionaryServer extends udpEchoServerAttribute {
+//基本的接收发送过程继承udpServer中
+public class udpDictionaryServer extends udpEchoServer {
     HashMap<String,String> hashMap = new HashMap<>();
 
 //    这是字典udp的构造方法，需要添加一些词组进去

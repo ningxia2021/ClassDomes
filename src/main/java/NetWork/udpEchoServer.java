@@ -9,13 +9,14 @@ import java.net.SocketException;
  * 2022.04.09 周六
  * 实现udp服务端 网络套接字编程
  */
-class udpEchoServerAttribute {
+
+public class udpEchoServer {
     //    定义属性
     private int port;
     private DatagramSocket socket;
 
     //        绑定端口
-    public udpEchoServerAttribute(int port) throws SocketException {
+    public udpEchoServer(int port) throws SocketException {
 //        这一步就是教你如何绑定呢
         socket = new DatagramSocket(port);
     }
@@ -48,11 +49,9 @@ class udpEchoServerAttribute {
 //        由于这里是一个回显服务器，所以就直接返回接收到的请求信息即可
         return req;
     }
-}
 
-public class udpEchoServer {
     public static void main(String[] args) throws IOException {
-        udpEchoServerAttribute udp = new udpEchoServerAttribute(9090);
+        udpEchoServer udp = new udpEchoServer(9090);
         udp.start();
     }
 }
