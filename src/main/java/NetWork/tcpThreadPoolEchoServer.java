@@ -57,7 +57,7 @@ public class tcpThreadPoolEchoServer {
             e.printStackTrace();
         }
     }
-
+// 所有的tcp服务器 要想实现功能不同  只需要继承 再 重写这一个 “根据请求计算响应” 的方法即可
     private String process(String request) {
         return request;
     }
