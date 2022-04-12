@@ -81,7 +81,6 @@ class CreatThread extends Thread {
                   System.out.println("收到"+msg);
                     clientUi.jTextArea1.append(msg+"\n");
                     clientUi.jTextArea2.append(msg+"\n");
-
                 }
                 //私聊
                 else if (msg.equals("300")){

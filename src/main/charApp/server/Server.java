@@ -1,7 +1,5 @@
 package charApp.server;
 
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -52,6 +50,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws Exception{
+//        TODO new实例+调方法
         new Server(user).getServer();
     }
 
@@ -69,7 +68,8 @@ public class Server {
                 e.printStackTrace();
             }
         }
-//TODO 重写线程run方法  每获取到一个accept 就会新建一个线程来处理连接
+
+//TODO 重写线程run方法  每获取到一个accept 就会新建一个线程来处理连接 具体如何处理就体现在run方法中
         @Override
         public void run() {
             try{
