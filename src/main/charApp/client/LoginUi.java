@@ -1,4 +1,4 @@
-package charApp.client;
+package client;
 
 import javax.swing.*;
 import java.awt.*;
