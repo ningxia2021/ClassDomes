@@ -41,6 +41,7 @@ public class Server {
                     Socket client = server.accept();
                     PrintWriter writer = new PrintWriter(client.getOutputStream());
                     list.add(writer);
+//                    TODO 每建立一次连接 就创建一个线程来处理连接
                     Thread t = new ServerThread(client);
                     t.start();
                 } catch (Exception e){
@@ -54,7 +55,7 @@ public class Server {
         new Server(user).getServer();
     }
 
-//TODO 这里有点像是要处理客户端连接的味道
+//TODO 这是多线程的第一种写法 通过继承Thread类来实现 重写run方法来定制运行的程序
     class ServerThread extends Thread {
         Socket socket;
         private BufferedReader bufferedReader;
@@ -73,9 +74,16 @@ public class Server {
         @Override
         public void run() {
             try{
+//                TODO 获取流
                 bufferedReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//                TODO 按行读取流中的内容给msg
                 while((msg= bufferedReader.readLine())!=null) {
                     //显示好友列表
+//                    TODO 自定义协议 100代表展示好友列表
+                    /**
+                     * 100
+                     * 用户信息
+                     */
                     if(msg.equals("100")) {
                         msg= bufferedReader.readLine();
                         //将用户信息添加到User对象中
