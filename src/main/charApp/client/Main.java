@@ -1,4 +1,4 @@
-package charApp.client;
+package client;
 
 /**
  * 客户端主程序
@@ -7,6 +7,6 @@ package charApp.client;
  */
 public class Main {
     public static void main(String[] args) {
-        new LoginUi();
+        new charApp.client.LoginUi();
     }
 }

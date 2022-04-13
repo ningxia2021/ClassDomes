@@ -1,4 +1,4 @@
-package charApp.server;
+package server;
 
 import java.net.Socket;
 
