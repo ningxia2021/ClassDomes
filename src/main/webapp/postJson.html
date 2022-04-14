@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postJson</title>
+</head>
+<body>
+
+<button onclick="sendPost()">以Json形式发送POST请求</button>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    function sendPost() {
+
+        let body = {
+            username: "gh",
+            passwd: "123",
+        };
+
+        $.ajax({
+            type: "post",
+            url: "postJson",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(body),
+            success: function (data, status) {
+                console.log(data);
+                console.log("打印的作用");
+            }
+        });
+    }
+</script>
+</body>
+</html>

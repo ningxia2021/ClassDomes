@@ -13,7 +13,7 @@ public class PostParameter extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        格式
         resp.setContentType("text/html;charset=utf-8");
-//        post请求的参数在body中
+//        post请求的参数在body中 query string格式
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 //        返回响应
