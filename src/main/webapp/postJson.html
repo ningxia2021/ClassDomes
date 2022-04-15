@@ -14,17 +14,19 @@
     function sendPost() {
 
         let body = {
-            username: "xx",
-            passwd: "123",
+            username: "sss",
+            passwd: 123,
         };
 
         $.ajax({
             type: "post",
             url: "postJson",
+            //将内容指定为JSON格式，以UTF-8字符编码进行编码
             contentType: "application/json;charset=utf-8",
+            //js -> Json
             data: JSON.stringify(body),
             success: function (data, status) {
-                console.log(data);
+                console.log(data,status);
                 console.log("打印的作用");
             }
         });
