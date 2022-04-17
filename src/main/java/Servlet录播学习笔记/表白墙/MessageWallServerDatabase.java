@@ -1,5 +1,6 @@
-package Servlet录播学习笔记;
+package Servlet录播学习笔记.表白墙;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
  *
  * 3.实现jdbc工具类
  */
+@WebServlet("/data")
 public class MessageWallServerDatabase extends HttpServlet {
-    
+
 }

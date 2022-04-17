@@ -1,4 +1,4 @@
-package Servlet录播学习笔记;
+package Servlet录播学习笔记.表白墙;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ class Message_Json{
     public String to;
     public String message;
 }
-@WebServlet("/message")
+@WebServlet("/message1")
 public class MessageWallServer extends HttpServlet {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Message_Json> list = new ArrayList<>();

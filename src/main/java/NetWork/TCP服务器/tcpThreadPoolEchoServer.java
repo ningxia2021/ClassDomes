@@ -1,6 +1,4 @@
-package NetWork;
-
-import server.Server;
+package NetWork.TCP服务器;
 
 import java.io.IOException;
 import java.io.InputStream;

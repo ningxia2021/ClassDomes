@@ -1,4 +1,4 @@
-package NetWork;
+package NetWork.UDP服务器;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

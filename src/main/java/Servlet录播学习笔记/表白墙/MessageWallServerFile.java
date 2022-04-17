@@ -1,4 +1,4 @@
-package Servlet录播学习笔记;
+package Servlet录播学习笔记.表白墙;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.ServletException;
@@ -25,7 +25,7 @@ class json {
     public String mes;
 }
 
-@WebServlet("/messageFile")
+@WebServlet("/messageFile1")
 public class MessageWallServerFile extends HttpServlet {
 
 //    jackson

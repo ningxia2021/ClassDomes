@@ -1,4 +1,4 @@
-package Servlet录播学习笔记;
+package Servlet录播学习笔记.Servlet基本使用流程;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
