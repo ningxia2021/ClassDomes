@@ -1,4 +1,4 @@
-package Servlet录播学习笔记.登录案例;
+package Servlet.登录案例;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

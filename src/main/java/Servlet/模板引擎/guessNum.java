@@ -1,4 +1,4 @@
-package Servlet录播学习笔记.模板引擎;
+package Servlet.模板引擎;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;

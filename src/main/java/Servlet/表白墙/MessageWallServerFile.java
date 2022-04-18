@@ -1,4 +1,4 @@
-package Servlet录播学习笔记.表白墙;
+package Servlet.表白墙;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.servlet.ServletException;
