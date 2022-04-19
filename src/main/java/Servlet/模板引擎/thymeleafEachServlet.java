@@ -20,7 +20,6 @@ class Person{
         this.name = name;
         this.phone = phone;
     }
-
 }
 
 @WebServlet("/each")

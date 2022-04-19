@@ -25,7 +25,6 @@ public class Client {
             Thread thread=new CreatThread(socket,user);
             thread.start();
 
-
         }catch (Exception e){
             e.printStackTrace();
         }
